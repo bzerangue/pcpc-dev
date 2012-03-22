@@ -1,0 +1,238 @@
+// Compass
+@import "compass";
+
+// Shared
+@import "zurb/shared";
+
+// Foundation parts
+@import "zurb/globals";
+@import "zurb/typography";
+@import "partials/grid-custom";
+@import "zurb/buttons";
+@import "zurb/ui";
+@import "zurb/forms";
+@import "zurb/orbit";
+@import "zurb/reveal";
+@import "zurb/mobile";
+
+@include font-face("Entypo", font-files("../fonts/entypo/entypo-webfont.ttf", truetype, "../fonts/entypo/entypo-webfont.woff", woff, "../fonts/entypo/entypo-webfont.svg", svg), "../fonts/entypo/entypo-webfont.eot");
+
+// PCPC
+
+body {
+  background: url(../images/design/bone-whitewash-bg.png);
+}
+
+/* Containers */
+#masthead-container, #masthead-bottom-container, #content-container, #footer-container {
+  @extend .container;
+}
+
+/* Masthead */
+#masthead-section {
+  //background: #1C3A6A url(../images/design/nav-top-repeat.jpg) repeat-x;
+  background: #1C3A6A url(../images/design/masthead-bg-repeat.png) repeat-x;
+  //background: #1C3A6A;
+}
+
+#masthead-bottom-section {
+  background: #1C3A6A url(../images/design/masthead-bg-repeat.png) repeat-x 0 -1px;
+  //background: #1C3A6A url(../images/design/nav-bottom-repeat.jpg) repeat-x 3px 0;
+  //background: #1C3A6A;
+}
+
+#masthead {
+  @extend .row;
+}
+
+#main-nav-group {
+  @extend .row;
+  padding: 5px;
+}
+
+#masthead-sitename {
+  @extend .twelve;
+  @extend .columns;
+  h1 {
+    margin-top: 12px;
+    font-size: 18px;
+    color: #fffeee;
+    @include single-text-shadow(rgba(0,0,0,0.5),2px,-1px,4px);
+  }
+}
+
+
+/* Navigation 
+   ============================= */
+
+/* Global Nav */
+#global-nav-container {
+  padding-top: 10px;
+  @extend .twelve;
+  @extend .columns;
+  ul {
+    @include horizontal-list-container;
+    li {
+      @include horizontal-list-item (20px);
+      padding-top: 7px;
+      &:last-child {
+        padding-top: 0;
+      }
+      a {
+        font-size: 0.95em;
+        color: rgb(255,255,255);
+      }
+    }
+  }
+}
+#global-nav-contact {
+  //background: url(../images/icons/global-nav-mail-icon.png) no-repeat left 75%;
+  position: relative;
+  &:before {  
+      //margin-right: 2%;
+      color: rgb(255,255,255);
+      font-family: "Entypo";
+      font-size: 2.4em;
+      content: "%"; /* Envelope */
+      position: absolute;
+      left: 0;  /* Firefox needs to be explicit here */
+      top: 30%;
+      text-indent: 0;
+    }
+  a {
+    margin-left: 24px;
+  }
+}
+#global-nav-events {
+  //background: url(../images/icons/global-nav-events-icon.png) no-repeat left 75%;
+  position: relative;
+  &:before {  
+      //margin-right: 2%;
+      color: rgb(255,255,255);
+      font-family: "Entypo";
+      font-size: 2.4em;
+      content: "P"; /* Calendar icon */
+      position: absolute;
+      left: 0;  /* Firefox needs to be explicit here */
+      top: 30%;
+      text-indent: 0;
+    }
+  a {
+    margin-left: 4px;
+  }
+}
+#global-nav-ministry-index {
+  //background: url(../images/icons/global-nav-index-icon.png) no-repeat left 75%;
+  position: relative;
+  &:before {  
+      //margin-right: 2%;
+      color: rgb(255,255,255);
+      font-family: "Entypo";
+      font-size: 2.4em;
+      content: "t"; /* Calendar icon */
+      position: absolute;
+      left: 0;  /* Firefox needs to be explicit here */
+      top: 30%;
+      text-indent: 0;
+    }
+  a {
+    margin-left: 4px;
+    
+  }
+}
+#global-nav-new-here {
+  a {
+    @extend .nice;
+    @extend .small;
+    @extend .radius;
+    // @extend .yellow;
+    @extend .button;
+  }
+}
+
+/* Main Nav */
+#main-nav {
+  @extend .twenty-four;
+  @extend .columns;
+  ul {
+    @include horizontal-list-container;
+    li {
+      @include horizontal-list-item(1em);
+      a {
+        color: lighten(#336699,25%);
+        text-transform: uppercase;
+        font-weight: bold;
+        @include single-text-shadow(rgba(0,0,0,0.5),2px,-1px,4px);
+        &:hover {
+          color: lighten(#336699,45%);
+          @include transition-property(color);
+          @include transition-duration(0.15s);
+          @include transition-timing-function(ease-in-out);
+        }
+      }
+    }
+  }
+}
+
+/* CONTENT SECTION 
+   ==================================== */
+#content-section {
+  padding: 15px 10px;
+}
+
+#home-welcome-statement-section {
+  @extend .row;
+  #home-welcome-statement {
+    @extend .twelve;
+    @extend .centered;
+  }
+}
+
+/* FOOTER SECTION
+   ===================================== */
+
+#footer-section {
+  // background: $black;
+  padding: 15px 10px;
+  background: url(../images/design/footer-triangle-border.png);
+  /* background:
+    url(../images/design/footer.jpg) top center no-repeat, 
+    url(../images/design/footer-repeat.jpg) repeat-x; */
+    
+ /* @media only screen and (max-width: 767px) {
+    background: $black;
+  } */
+}
+
+#site-information {
+  @extend .row;
+}
+
+#footer-location-service-times {
+  @extend .twelve;
+  @extend .columns;
+  padding: 0.8em 0;
+  h2 {
+    font-size: 1.2em;
+    color: #fff;
+  }
+}
+#footer-location-service-times-module {
+  @extend .row;
+  #main-address, #service-times {
+    margin-left: -20px;
+  }
+  #service-times {
+    padding-top: 16px;
+  }
+}
+
+/* HOME SPECIFIC
+   ====================================== */
+
+ #home-feature-ad {
+  @extend .sixteen;
+  @extend .columns;
+  margin-bottom: 12px;
+}
+  

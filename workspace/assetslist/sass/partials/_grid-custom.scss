@@ -1,0 +1,31 @@
+/* Grids */
+@import "../zurb/grid-dynamic";
+
+@include container(20px);
+
+// Include foundation-grid mixin
+// include defaults ($number-of-columns: 12, $grid-max-width: 980px, $grid-min-width: 727px, $gutter-width: 4.4%)
+@include foundation-grid(24, 1152px, 727px, 4.4%); 
+
+// More Grid Settings
+@include image-and-maps;
+
+// Row Clearfix
+@include row-clearfix;
+
+
+  // Blockgrids
+  //----------------------------------------------------------------------------------------------------
+
+@include blockgrids;  
+
+  // Notes:
+  //
+  //    These are 2-up, 3-up, 4-up and 5-up ULs suited for repeating blocks of content.
+  //    Add 'mobile' to them to switch them just like the layout grid (one item per line) on phones
+  //
+  //    For IE7/8 compatibility, block-grid items need to be the same height.
+  //    To support arbitrary height, set $support-block-grid-nth-child to true
+  //    Just know that IE7/8 do not support :nth-child
+  
+

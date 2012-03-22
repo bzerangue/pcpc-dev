@@ -1,0 +1,169 @@
+// GRID MIXINS
+
+// NOTE: This Sass stylesheet is dependent on the Custom Sass Function, convert-number-to-word,
+//       which is available here, https://gist.github.com/1439296
+
+/* Arfully Masterminded by ZURB */
+/* Grid :: This is the mobile-friendly, responsive grid that lets Foundation work much of its magic. */
+
+// Grid set to Foundation Library defaults, these values can be changed.
+
+
+
+//$grid-max-width: 980px;
+//$grid-min-width: 727px;
+//$number-of-columns: 12;
+
+//$number-of-gutters: $number-of-columns - 1;
+//$gutter-width: 4.4%;
+//$column-width: (100% - $gutter-width * $number-of-gutters) / $number-of-columns * 1;
+
+
+  
+@mixin container ($container-padding: 20px) {
+  .container {
+    padding: 0 $container-padding; 
+  }
+}  
+
+// Foundation Grid 
+//----------------------------------------------------------------------------------------------------
+
+// Notes:
+//
+//    This mixin includes values for number-of-columns, grid-max-width, grid-min-width, gutter-width
+//    Defaults:
+//    @include foundation-grid(12,980px,727px,4.4%);
+//
+
+@mixin foundation-grid($number-of-columns: 12, $grid-max-width: 980px, $grid-min-width: 727px, $gutter-width: 4.4%) {  
+  
+  $number-of-gutters: $number-of-columns - 1; 
+  $column-width: (100% - $gutter-width * $number-of-gutters) / $number-of-columns * 1;
+  
+  // To set the grid to a certain size, set max-width to width
+  .row {
+    width: 100%;
+    max-width: $grid-max-width;
+    min-width: $grid-min-width;
+    margin: 0 auto;
+    .row {
+      min-width: 0px; } }
+
+  .column, .columns {
+    margin-left: 4.4%;
+    float: left;
+    min-height: 1px;
+    position: relative;
+    &:first-child {
+      margin-left: 0; } }
+
+  .row {
+    /* .one.columns, .two.columns, etc. - more stuff */
+    @for $i from 1 through $number-of-columns {
+      .#{convert-number-to-word($i)}.columns {
+        @if $i == 1 {
+          width: $column-width * $i; }
+        @else {
+          width: $column-width * $i + $gutter-width * $i - $gutter-width; } } }
+    /* .offset-by-one, .offset-by-two, etc. */
+    @for $i from 1 through $number-of-columns - 2 {
+      .offset-by-#{convert-number-to-word($i)} {
+        margin-left: $column-width * ($i + 1) + $gutter-width * ($i + 1) - $gutter-width + 0.1%;
+        &:first-child {
+          margin-left: $column-width * ($i + 1) + $gutter-width * ($i + 1) - $gutter-width + 0.1% - $gutter-width; } } }
+    // Source Ordering
+    /* Push Ordering */
+    @for $i from 2 through $number-of-columns - 2 {
+      .push-#{convert-number-to-word($i)} {
+        left: $column-width * ($i + 1) + $gutter-width * ($i + 1) - $gutter-width + 0.1% - $gutter-width; } }
+    /* Pull Ordering */
+    @for $i from 2 through $number-of-columns - 2 {
+      .pull-#{convert-number-to-word($i)} {
+        right: $column-width * ($i + 1) + $gutter-width * ($i + 1) - $gutter-width + 0.1% - $gutter-width; } }
+    /* .one.centered, .two.centered, etc. */
+    @for $i from 1 through $number-of-columns {
+      .#{convert-number-to-word($i)}.centered {
+        width: $column-width * $i + $gutter-width * $i - $gutter-width;
+        margin: 0 auto; } } }
+}
+
+@mixin image-and-maps {
+  img, object, embed {
+    max-width: 100%;
+    height: auto; }
+
+  img {
+    -ms-interpolation-mode: bicubic; }
+
+  #map_canvas img, .map_canvas img {
+    max-width: none !important; }
+} 
+
+@mixin row-clearfix {
+  /* Nicolas Gallagher's micro clearfix */
+  .row:before, .row:after, .clearfix:before, .clearfix:after {
+    content: "";
+    display: table; }
+
+  .row:after, .clearfix:after {
+    clear: both; }
+
+  .row, .clearfix {
+    zoom: 1; }
+}
+
+
+// Blockgrids
+//----------------------------------------------------------------------------------------------------
+
+// Notes:
+//
+//    These are 2-up, 3-up, 4-up and 5-up ULs suited for repeating blocks of content.
+//    Add 'mobile' to them to switch them just like the layout grid (one item per line) on phones
+//
+//    For IE7/8 compatibility, block-grid items need to be the same height.
+//    To support arbitrary height, set $support-block-grid-nth-child to true
+//    Just know that IE7/8 do not support :nth-child
+
+@mixin blockgrids {
+  .block-grid {
+    display: block;
+    overflow: hidden;
+    & > li {
+      display: block;
+      height: auto;
+      float: left; }
+    &.two-up {
+      margin-left: -4%;
+      & > li {
+        margin-left: 4%;
+        width: 46%;
+        @if $support-block-grid-nth-child {
+          &:nth-child(2n+1) {
+            clear: left; } } } }
+    &.three-up {
+      margin-left: -2%;
+      & > li {
+        margin-left: 2%;
+        width: 31.3%;
+        @if $support-block-grid-nth-child {
+          &:nth-child(3n+1) {
+            clear: left; } } } }
+    &.four-up {
+      margin-left: -4%;
+      & > li {
+        margin-left: 4%;
+        width: 23%;
+        @if $support-block-grid-nth-child {
+          &:nth-child(4n+1) {
+            clear: left; } } } }
+    &.five-up {
+      margin-left: -1.5%;
+      & > li {
+        margin-left: 1.5%;
+        width: 18.5%;
+        @if $support-block-grid-nth-child {
+          &:nth-child(5n+1) {
+            clear: left; } } } } }
+}

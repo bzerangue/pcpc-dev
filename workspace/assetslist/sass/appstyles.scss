@@ -1,0 +1,27 @@
+// Compass
+@import "compass";
+
+// Shared
+@import "zurb/shared";
+
+// Foundation parts
+@import "zurb/globals";
+//@import "partials/modular-scale";
+//@import "zurb/typography";
+@import "partials/grid-custom";
+@import "zurb/buttons";
+@import "zurb/ui";
+@import "zurb/forms";
+@import "zurb/orbit";
+@import "zurb/reveal";
+@import "zurb/mobile";
+
+@include font-face("Entypo", font-files("../fonts/entypo/entypo-webfont.ttf", truetype, "../fonts/entypo/entypo-webfont.woff", woff, "../fonts/entypo/entypo-webfont.svg", svg), "../fonts/entypo/entypo-webfont.eot");
+
+/* Modular Scale 
+---------------------- 
+   10px @ 1:1.5	 (Base)
+   18px @ 1:1.5	 (Important Number)
+   ----------------------*/
+
+p { font-size: 16px; font-size: 1.6rem;}
