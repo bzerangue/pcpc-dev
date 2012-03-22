@@ -1,0 +1,248 @@
+!!!
+/ paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/
+/[if lt IE 7] <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en">
+/[if IE 7] <html class="no-js lt-ie9 lt-ie8" lang="en">
+/[if IE 8] <html class="no-js lt-ie9" lang="en">
+/ [if gt IE 8]><!
+%html{:lang => "en"}
+  / <![endif]
+  %head
+    %meta{:charset => "utf-8"}/
+    / Set the viewport width to device width for mobile
+    %meta{:content => "width=device-width", :name => "viewport"}/
+    %title TWO :: Park Cities Presbyterian Church (PCA)
+    / Included CSS Files
+    %link{:href => "/workspace/assets/stylesheets/app.css", :rel => "stylesheet"}/
+    /[if lt IE 9]
+      <link rel="stylesheet" href="stylesheets/ie.css"/>
+    %script{:src => "http://www.google.com/jsapi?autoload={%22modules%22:[{name:%22maps%22,version:3,other_params:%22sensor=false%22}]}"}
+    %script{:src => "http://use.typekit.com/fuz6ulc.js", :type => "text/javascript"}
+    :javascript
+      try{Typekit.load();}catch(e){}    / IE Fix for HTML5 Tags
+    /[if lt IE 9]
+      <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  %body
+    #masthead-section
+      #masthead-container
+        #masthead
+          %header#masthead-sitename
+            %h1 Park Cities Presbyterian Church
+          %nav#global-nav-container
+            %ul
+              %li#global-nav-contact
+                %a{:href => "#"} Contact
+              %li#global-nav-events
+                %a{:href => "#"} Events
+              %li#global-nav-ministry-index
+                %a{:href => "#"} Ministry Index
+              %li#global-nav-new-here
+                %a{:href => "#"} I'm New Here
+    #masthead-bottom-section
+      #masthead-bottom-container
+        #main-nav-group.row
+          %nav#main-nav
+            %ul
+              %li#main-nav-about
+                %a{:href => "#"} About
+              %li#main-nav-worship
+                %a{:href => "#"} Worship
+              %li#main-nav-connect
+                %a{:href => "#"} Connect
+              %li#main-nav-missions
+                %a{:href => "#"} Missions
+              %li#main-nav-serve
+                %a{:href => "#"} Serve
+              %li#main-nav-care
+                %a{:href => "#"} Care
+              %li#main-nav-resources
+                %a{:href => "#"} Resources
+    #content-section
+      / container
+      #content-container
+        / Row ++ Home Welcome Statement
+        /
+          <div id="home-welcome-statement-section">
+          <div id="home-welcome-statement">
+          <p>To all who are spiritually weary and seek rest; to all who mourn and long for comfort; to all
+          who struggle and desire victory; to all who sin and need a Savior; to all who are strangers and
+          want fellowship; to all who hunger and thirst after righteousness; and to all who will come,
+          this church opens wide her doors and offers welcome in the name of the Lord Jesus Christ.</p>
+          </div>
+          </div>
+        .row
+          #home-feature-ad
+            /
+              <img src="http://placehold.it/800x365" />
+            .flex-video.widescreen.vimeo
+              %iframe{:allowFullScreen => "", :frameborder => "0", :height => "365", :mozallowfullscreen => "", :src => "http://player.vimeo.com/video/35269748?title=0&byline=0&portrait=0", :webkitAllowFullScreen => "", :width => "640"}
+            /
+              <div class="flex-container">
+              <div class="flexslider">
+              <ul class="slides">
+              <li id="slide1">
+              <img src="http://placehold.it/804x362" />
+              </li>
+              <li id="slide2">
+              <img src="http://placehold.it/804x362" />
+              </li>
+              <li id="slide3">
+              <img src="http://placehold.it/804x362" />
+              </li>
+              </ul>
+              </div>
+              </div>
+            /
+              <ul class="nice tabs-content contained">
+              <li class="active" id="vertical1Tab"><img src="http://placehold.it/630x362" title="630x362" width="630px" height="362px" />This is nice tab 1's content. Pretty neat, huh?</li>
+              <li id="vertical2Tab"><img src="http://placehold.it/630x362" title="630x362" width="630px" height="362px" />This is nice tab 2's content. Now you see it!</li>
+              <li id="vertical3Tab"><img src="http://placehold.it/630x362" title="630x362" width="630px" height="362px" />This is nice tab 3's content. It's, you know...okay.</li>
+              </ul>
+            /
+              <div id="featured">
+              <img src="http://placehold.it/663x362" title="663x362" width="663px" height="362px" />
+              <img src="http://placehold.it/663x362" title="663x362" width="663px" height="362px" />
+              </div>
+          .six.columns
+            .panel
+              %h2 Welcome to PCPC
+              %blockquote
+                %p
+                  To all who are spiritually weary and seek rest;
+                  %br/
+                  to all who mourn and long for comfort;
+                  %br/
+                  to all who struggle and desire victory;
+                  %br/
+                  to all who sin and need a Savior;
+                  %br/
+                  to all who are strangers and want fellowship;
+                  %br/
+                  to all who hunger and thirst after righteousness;
+                  %br/
+                  and to all who will come, this church opens wide her doors
+                  %br/
+                  and offers welcome in the name of the Lord Jesus Christ.
+        .row
+          .ten.columns
+            %ul.block-grid.three-up
+              %li
+                %p
+                  %img{:alt => "", :src => "http://placehold.it/300x250"}/
+                %p This is where a brief description will be.
+              %li
+                %p
+                  %img{:alt => "", :src => "http://placehold.it/300x250"}/
+                %p This is where a brief description will be.
+              %li
+                %p
+                  %img{:alt => "", :src => "http://placehold.it/300x250"}/
+                %p This is where a brief description will be.
+            %dl.nice.contained.tabs
+              %dd
+                %a.active{:href => "#nice1"} Welcome
+              %dd
+                %a{:href => "#nice2"} Nice Tab 2
+              %dd
+                %a{:href => "#nice3"} Nice Tab 3
+            %ul.nice.tabs-content.contained
+              %li#nice1Tab.active
+                %p
+                  To all who are spiritually weary and seek rest; to all who mourn and long for comfort; to all
+                  who struggle and desire victory; to all who sin and need a Savior; to all who are strangers and
+                  want fellowship; to all who hunger and thirst after righteousness; and to all who will come,
+                  this church opens wide her doors and offers welcome in the name of the Lord Jesus Christ.
+              %li#nice2Tab This is nice tab 2's content. Now you see it!
+              %li#nice3Tab This is nice tab 3's content. It's, you know...okay.
+          .six.columns
+            .row
+              .sixteen.columns
+                %dl
+                  %dt Latest Sermon
+                  %dd Hunger and Thirst for Righteousness
+                  %dd by Mark Davis
+                  %dd Sunday, September 25, 2011
+                  %dd Scripture: Matthew 5:1-9
+                  %dd
+                    %a{:href => "#"} Listen
+            .row
+              .sixteen.columns
+                %dl
+                  %dt Upcoming Sermon
+                  %dd Is There Any Greater Thought?
+                  %dd by Mark Davis
+                  %dd Sunday, October 2, 2011
+                  %dd Scripture: Matthew 5:1-9
+        /
+          Row 1. Feature Banners with Vertical Tabs? (banner: 10-columns / Vertial Tabs: 6-columns)
+          Row 2. Secondary Home Content
+          \- 2 Columns 10-col and 6-col
+      / container
+    #footer-section
+      #footer-container
+        / Site Information/Footer Begins
+        %footer#site-information
+          #footer-location-service-times
+            #footer-location-service-times-module
+              %h2
+                Location
+                %span.ampersand &
+                Service Times
+              #location-service-times.ten.columns
+                #main-address
+                  %dl
+                    %dt Main Address
+                    %dd Park Cities Presbyterian Church
+                    %dd 4124 Oak Lawn Avenue
+                    %dd Dallas, Texas 75219
+                #service-times
+                  %dl
+                    %dt Sunday Services
+                    %dd 8:00 am – Communion
+                    %dd
+                      9:30 am
+                      %span.ampersand &
+                      11:00 am
+              .five.columns.hide-on-phones.hide-on-tablets
+                %div{:style => " border: 7px solid #ddd;"}
+                  :javascript
+                    function initialize() {
+                    	var myLatLng = new google.maps.LatLng(32.8122500, -96.8125840);
+                    	var myOptions = {
+                      		zoom: 13,
+                      		center: myLatLng,
+                    		mapTypeId: google.maps.MapTypeId.ROADMAP
+                    	}
+                    	var map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
+                    	var marker = new google.maps.Marker({
+                    		position: myLatLng, 
+                    		map: map
+                    	});
+                    	var infowindow = new google.maps.InfoWindow({ 
+                    		position: myLatLng
+                    	});
+                    	infowindow.open(map);
+                      }
+                      google.setOnLoadCallback(initialize);       
+										                  #map_canvas{:style => "width: auto; height: 125px;"}
+                    / Maps Here
+          .eight.columns stuff
+          .eight.columns more stuff
+        / End of Site Information/Footer
+    / Included JS Files
+    %script{:src => "/workspace/assets/javascripts/jquery.min.js"}
+    %script{:src => "/workspace/assets/javascripts/jquery.reveal.js"}
+    %script{:src => "/workspace/assets/javascripts/jquery.orbit-1.3.0.js"}
+    %script{:src => "/workspace/assets/javascripts/forms.jquery.js"}
+    %script{:src => "/workspace/assets/javascripts/jquery.customforms.js"}
+    %script{:src => "/workspace/assets/javascripts/jquery.placeholder.min.js"}
+    %script{:src => "/workspace/assets/javascripts/jquery.flexslider.js"}
+    %script{:src => "/workspace/assets/javascripts/app.js"}
+    %script{:charset => "utf-8", :type => "text/javascript"}
+      $(window).load(function() {
+      $('.flexslider').flexslider({
+      animation: "slide",
+      controlsContainer: ".flex-custom-nav",
+      controlNav: true,
+      manualControls: ".flex-custom-nav dd"
+      });
+      });
